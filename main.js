@@ -1,15 +1,12 @@
 class Game {
     constructor() {
-
         this.state = 1
         this.score
         this.chances
         this.state_speed_x
         this.state_speed_y
-
         this.menu_sound
         this.hit_sound
-
         this.chance_message
         this.score_message
         this.mode_message
@@ -58,7 +55,6 @@ function setup() {
 
 function draw() {
     if (game.state == 1) {
-
         background(0);
         textSize(30);
         fill(255);
@@ -84,7 +80,6 @@ function draw() {
     }
 
     if (game.state == 2) { // game state
-
         background("rgba(0, 0, 0, 1)");
         fill(255);
         textSize(20);
@@ -97,7 +92,7 @@ function draw() {
         if (game.ball.x < 20 || game.ball.x > 480) { // flip direction and randomize x speed
             game.ball.x_dir_mult *= -1;
             game.ball.x_speed = random(0.8 * game.state_speed_x, 1.2 * game.state_speed_x);
-
+            
             if (
                 game.ball.x - 10 > 480 + 10 ||
                 game.ball.x + 10 < 480 - 10 ||
@@ -170,7 +165,6 @@ function draw() {
 
         rect(500 / 3, 320, 100, 75, 5);
         rect((2 * 500) / 3, 320, 100, 75, 5);
-
         fill(0);
         text("Quit", 500 / 3, 330);
         text("Yes", (2 * 500) / 3, 330);
@@ -195,7 +189,6 @@ function draw() {
 }
 
 function mouseClicked() {
-
     if (game.state == 5) { // starts game
         game.left_slider.y = 250;
         game.right_slider.y = 250;
@@ -209,7 +202,6 @@ function mouseClicked() {
     }
 
     if (game.state == 1) { // chooses difficulty
-
         function choose_settings({chances, speed_x, speed_y, mode}) {
             game.chances = chances
             game.state_speed_x = speed_x;
@@ -244,7 +236,6 @@ function mouseClicked() {
     }
 
     if (game.state == 3) { // replay or quit screen
-
         if (
             mouseX > 1000 / 3 - 50 &&
             mouseX < 1000 / 3 + 50 &&
